@@ -30,14 +30,6 @@ public class EstabelecimentoRequestDto {
         return endereco;
     }
 
-    @Override
-    public String toString() {
-        return "EstabelecimentoRequestDto{" +
-                "nome='" + nome + '\'' +
-                ", cidade='" + cidade + '\'' +
-                ", endereco='" + endereco + '\'' +
-                '}';
-    }
 
     public Estabelecimento converteParaEstabelecimento(){
         return new Estabelecimento(nome, cidade, endereco);

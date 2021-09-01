@@ -5,18 +5,16 @@ import java.time.LocalDateTime;
 
 @Entity
 public class Transacao {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idBanco;
 
+    @Id
     private String id;
 
     private Double valor;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Estabelecimento estabelecimento;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Cartao cartao;
 
     private LocalDateTime efetivadaEm = LocalDateTime.now();
@@ -33,9 +31,6 @@ public class Transacao {
         this.efetivadaEm = efetivadaEm;
     }
 
-    public Long getIdBanco() {
-        return idBanco;
-    }
 
     public String getId() {
         return id;
@@ -57,15 +52,4 @@ public class Transacao {
         return efetivadaEm;
     }
 
-    @Override
-    public String toString() {
-        return "Transacao{" +
-                "idBanco=" + idBanco +
-                ", id='" + id + '\'' +
-                ", valor=" + valor +
-                ", estabelecimento=" + estabelecimento +
-                ", cartao=" + cartao +
-                ", efetivadaEm=" + efetivadaEm +
-                '}';
-    }
 }

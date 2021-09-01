@@ -50,16 +50,6 @@ public class TransacaoRequestDto {
         return efetivadaEm;
     }
 
-    @Override
-    public String toString() {
-        return "TransacaoRequestDto{" +
-                "id='" + id + '\'' +
-                ", valor=" + valor +
-                ", estabelecimento=" + estabelecimento +
-                ", cartao=" + cartao +
-                ", efetivadaEm=" + efetivadaEm +
-                '}';
-    }
 
     public Transacao converteParaTransacao(){
         Cartao cartao = this.cartao.converteParaCartao();

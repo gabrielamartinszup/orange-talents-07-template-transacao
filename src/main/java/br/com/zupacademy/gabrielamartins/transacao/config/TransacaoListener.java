@@ -18,7 +18,7 @@ public class TransacaoListener {
 
         Transacao transacao = transacaoRequestDto.converteParaTransacao();
 
-        System.out.println(transacaoRequestDto.toString());
+        System.out.println(transacaoRequestDto);
         transacaoRepository.save(transacao);
 
     }
